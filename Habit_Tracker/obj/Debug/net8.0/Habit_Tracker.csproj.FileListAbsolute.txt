@@ -39,3 +39,4 @@ D:\Code\C#\Habit_Tracker\Habit_Tracker\obj\Debug\net8.0\refint\Habit_Tracker.dll
 D:\Code\C#\Habit_Tracker\Habit_Tracker\obj\Debug\net8.0\Habit_Tracker.pdb
 D:\Code\C#\Habit_Tracker\Habit_Tracker\obj\Debug\net8.0\Habit_Tracker.genruntimeconfig.cache
 D:\Code\C#\Habit_Tracker\Habit_Tracker\obj\Debug\net8.0\ref\Habit_Tracker.dll
+D:\Code\C#\Habit_Tracker\Habit_Tracker\obj\Debug\net8.0\Habit_Tracker.sourcelink.json

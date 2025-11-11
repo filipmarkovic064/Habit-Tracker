@@ -205,6 +205,7 @@ namespace Habit_Tracker
             Console.WriteLine("\n\tPlease input a valid date (Format: dd-mm-yyyy)");
             Console.WriteLine("\tAlternatively type 0 to cancel;");
             string? Date = Console.ReadLine();
+            if (Date == "0") MainMenu();
             while (!DateTime.TryParseExact(Date, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out var result))
             {
                 Console.WriteLine("\n\tInvalid Date Format, please input a valid date (Format: dd-mm-yyyy)");
