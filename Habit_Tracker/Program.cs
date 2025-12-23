@@ -123,12 +123,10 @@ namespace Habit_Tracker
             }
             Connection.Close();
             Console.WriteLine("Database seeded with random entries, returning to Main Menu");
-/*            Console.ReadKey();
-            MainMenu();*/
         }
         private static void ViewHabits()
         {
-//MAYBE UNIT DATA, README
+
             Console.Clear();
             
             using var Connection = new SqliteConnection(ConnectionString);
@@ -276,9 +274,10 @@ namespace Habit_Tracker
                                         WHERE ID = $answer";
             DeleteHabit.Parameters.AddWithValue("$answer", answer);
             int RowsDeleted = DeleteHabit.ExecuteNonQuery();
-            if (RowsDeleted < 0) 
+            if (RowsDeleted <= 0) 
             {
                 Console.WriteLine($"\n\tHabit with ID: {answer} not found, returning to Main Menu");
+                Console.ReadKey();
                 MainMenu();
             }
             Console.WriteLine("\n\tHabit Deleted, click anything to return to main menu");
@@ -324,13 +323,13 @@ namespace Habit_Tracker
                     Console.WriteLine("Input New Quantity Value: (INTEGER)");
                     NewValue = Console.ReadLine();
                     UpdateValue.Parameters.AddWithValue("$NewValue", NewValue);
-                    UpdateValue.CommandText = $@"UPDATE DrinkingWater
+                    UpdateValue.CommandText = $@"UPDATE Habits
                                          SET Quantity = $NewValue
                                          WHERE ID = $HabitId";
                     break;
                 case "4":
                     NewValue = GetUserDate();
-                    UpdateValue.CommandText = $@"UPDATE DrinkingWater
+                    UpdateValue.CommandText = $@"UPDATE Habits
                                          SET Date = '{NewValue}'
                                          WHERE ID = $HabitId";
                     break;
@@ -341,7 +340,7 @@ namespace Habit_Tracker
             }
 
             int SuccessCheck = UpdateValue.ExecuteNonQuery();
-            if (SuccessCheck >= 0)
+            if (SuccessCheck > 0)
             {
                 Console.WriteLine($"Successfully Updated Habit with ID {HabitId}, press anything to go back to main menu");
                 Console.ReadKey();
@@ -349,7 +348,7 @@ namespace Habit_Tracker
             }
             else
             {
-                Console.WriteLine("Update Failed, returning to Main Menu");
+                Console.WriteLine("Update Failed (ID Most likely not found), returning to Main Menu");
                 Console.ReadKey();
                 MainMenu();
             }
