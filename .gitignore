@@ -3,6 +3,7 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+Habit_Tracker\bin\Debug\FirstRun.txt
 # dotenv files
 .env
 
